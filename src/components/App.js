@@ -7,7 +7,7 @@ class App extends Component {
   state = {
     move: false,
     city: '',
-    selectCity: 3
+    selectCity: 0
   }
   //координаты мыши
   mouseCoordinates = (e) => {
@@ -61,14 +61,25 @@ class App extends Component {
     let city = document.getElementById(this.state.city);
     let mouse = this.mouseCoordinates(event);
     let area = document.getElementsByClassName('col s6')[3].getBoundingClientRect();
-    if(mouse.x > area.left && mouse.x < area.right && mouse.y > area.top && mouse.y < area.bottom){
-      this.setState({move: false, selectCity: this.state.selectCity - 1})
-      city.style.position = 'inherit'
-      document.getElementById("positionSelect").appendChild(city);
+    var children = document.getElementById('positionSelect').children.length
+  
+    if(children < 3){
+      if(mouse.x > area.left && mouse.x < area.right && mouse.y > area.top && mouse.y < area.bottom){
+        this.setState({move: false})
+        city.style.position = 'inherit'
+        document.getElementById("positionSelect").appendChild(city);
+      }
+      else{
+        city.style.position = 'inherit'
+        document.getElementById('positionStart').appendChild(city);
+        this.setState({move: false})
+      }
     }
     else{
       city.style.position = 'inherit'
       document.getElementById('positionStart').appendChild(city);
+      this.setState({move: false})
+
     }
   }
 
@@ -128,7 +139,7 @@ class App extends Component {
                 </div>
                 <div className="col s6">
                   <div id="area">
-                    <p>Перетащите в эту область {this.state.selectCity} города</p>
+                    <p>Перетащите в эту область {this.state.selectCity} город(a)</p>
                     <div id="positionSelect"></div>
                   </div>
                 </div>
