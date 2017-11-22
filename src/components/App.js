@@ -34,7 +34,7 @@ class App extends Component {
     if(mouse.x > area.left && mouse.x < area.right && mouse.y > area.top && mouse.y < area.bottom){
       document.getElementById("area").style.border = "1px dashed #147274"
       document.getElementById("area").style.transition = "2s ease-out"
-      document.getElementById("area").style.background = "#212"
+      document.getElementById("area").style.background = "#f7f7f7"
     }
     else{
       document.getElementById("area").style.border = "1px double #e7e7e7"
