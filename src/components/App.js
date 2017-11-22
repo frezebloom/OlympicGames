@@ -8,16 +8,7 @@ class App extends Component {
     move: false,
     city: ''
   }
-
-  componentDidMount(){
-    this.Height();
-  }
-
-  Height = (e) => {
-    let heightBlock = document.getElementById('spb').clientHeight
-    document.getElementById('area').style.height = 3 * heightBlock+"px";
-  }
-
+  //координаты мыши
   mouseCoordinates = (e) => {
     let startX = e.clientX;
     let startY = e.clientY
@@ -53,30 +44,17 @@ class App extends Component {
 
   //отпускание мышки
   mouseUp = (event) => {
-
     let city = document.getElementById(this.state.city);
     let mouse = this.mouseCoordinates(event);
     let area = document.getElementsByClassName('col s6')[3].getBoundingClientRect();
     if(mouse.x > area.left && mouse.x < area.right && mouse.y > area.top && mouse.y < area.bottom){
       this.setState({move: false})
-      // city.style.position = 'relative'
-      document.getElementsByClassName('col s6')[3].appendChild(city);
-      console.log(area)
-      console.log(city)
-      // this.setState({move: false})
-      // document.getElementById("area").appendChild(SPB);
-      //
-      //
-      // city.style.position = 'relative';
-      //
-      // city.parentNode.removeChild(SPB);
-      // let city = '<div class=card-panel id=SPB onMouseDown="onSPB();">Санкт-перербург</div>'
-      // document.getElementById("area").innerHTML+= city
-
+      city.style.position = 'inherit'
+      document.getElementById("positionCity").appendChild(city);
     }
     else{
-      // let city = '<div class=card-panel id=SPB>Санкт-перербург</div>'
-      // document.getElementById("area").innerHTML+= city
+      city.style.position = 'relative'
+      document.getElementsByClassName('col s6')[3].appendChild(city);
     }
   }
 
@@ -133,20 +111,14 @@ class App extends Component {
                 </div>
                 </div>
                 <div className="col s6">
-                  <div id="area" onMouseMove={this.pointing}>
-                    <div className="card-panel" id="berlin">
-                      Берлин
-                    </div>
+                  <div id="area">
+                    <div id="positionCity"></div>
                   </div>
                 </div>
           </div>
-
-
-
-        <a className="waves-effect waves-light btn">Отправить</a>
+          <a className="waves-effect waves-light btn">Отправить</a>
+        </div>
       </div>
-      </div>
-
     )
   }
 }
