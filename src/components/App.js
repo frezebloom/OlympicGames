@@ -31,15 +31,16 @@ class App extends Component {
     this.moveAt(event);
     let mouse = this.mouseCoordinates(event);
     let area = document.getElementsByClassName('col s6')[3].getBoundingClientRect();
+    var ar = document.getElementById("area")
     if(mouse.x > area.left && mouse.x < area.right && mouse.y > area.top && mouse.y < area.bottom){
-      document.getElementById("area").style.border = "1px dashed #147274"
-      document.getElementById("area").style.transition = "2s ease-out"
-      document.getElementById("area").style.background = "#f7f7f7"
+      ar.style.border = "1px dashed #147274"
+      ar.style.transition = "2s ease-out"
+      ar.style.background = "#f7f7f7"
     }
     else{
-      document.getElementById("area").style.border = "1px double #e7e7e7"
-      document.getElementById("area").style.transition = "1s ease-out"
-      document.getElementById("area").style.background = "#ffffff"
+      ar.style.border = "1px double #e7e7e7"
+      ar.style.transition = "1s ease-out"
+      ar.style.background = "#ffffff"
     }
   }
 
@@ -126,6 +127,7 @@ class App extends Component {
                 </div>
                 <div className="col s6">
                   <div id="area">
+                    <p>Перетащите в эту область 3 города</p>
                     <div id="positionSelect"></div>
                   </div>
                 </div>

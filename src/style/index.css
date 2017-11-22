@@ -51,5 +51,9 @@ body{
 #area{
   border: 1px double #e7e7e7;
   max-width: 100%;
-  min-height: 250px;
+  min-height: 450px;
+}
+#area p {
+  opacity: 0.7;
+  color: black;
 }
