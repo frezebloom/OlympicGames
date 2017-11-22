@@ -1,3 +1,11 @@
+body{
+  background-image: url(../img/back.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
 .form {
   width: 70%;
   top: 50px;
@@ -43,13 +51,5 @@
 #area{
   border: 1px double #e7e7e7;
   max-width: 100%;
-  height: inherit;
-}
-#area:hover{
-  transition: all 2s ease;
-  border: 1px double #008080;
-  background: #efffed;
-}
-#spb{
-
+  min-height: 250px;
 }

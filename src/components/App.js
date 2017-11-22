@@ -29,6 +29,18 @@ class App extends Component {
   //движение элемента
   move = (event) => {
     this.moveAt(event);
+    let mouse = this.mouseCoordinates(event);
+    let area = document.getElementsByClassName('col s6')[3].getBoundingClientRect();
+    if(mouse.x > area.left && mouse.x < area.right && mouse.y > area.top && mouse.y < area.bottom){
+      document.getElementById("area").style.border = "1px dashed #147274"
+      document.getElementById("area").style.transition = "2s ease-out"
+      document.getElementById("area").style.background = "#212"
+    }
+    else{
+      document.getElementById("area").style.border = "1px double #e7e7e7"
+      document.getElementById("area").style.transition = "1s ease-out"
+      document.getElementById("area").style.background = "#ffffff"
+    }
   }
 
   //клик мышкой
@@ -50,11 +62,11 @@ class App extends Component {
     if(mouse.x > area.left && mouse.x < area.right && mouse.y > area.top && mouse.y < area.bottom){
       this.setState({move: false})
       city.style.position = 'inherit'
-      document.getElementById("positionCity").appendChild(city);
+      document.getElementById("positionSelect").appendChild(city);
     }
     else{
-      city.style.position = 'relative'
-      document.getElementsByClassName('col s6')[3].appendChild(city);
+      city.style.position = 'inherit'
+      document.getElementById('positionStart').appendChild(city);
     }
   }
 
@@ -87,32 +99,34 @@ class App extends Component {
           <div className="row">
             <div className="height">
               <div className="col s6">
-                  <div className="card-panel" id="spb" onMouseDown={this.onCity} onMouseUp={this.mouseUp}>
-                    Санкт-Петербург
-                  </div>
-                  <div className="card-panel" id="madrid" onMouseDown={this.onCity} onMouseUp={this.mouseUp}>
-                    Мадрид
-                  </div>
-                  <div className="card-panel" id="berlin" onMouseDown={this.onCity} onMouseUp={this.mouseUp}>
-                    Берлин
-                  </div>
-                  <div className="card-panel" id="tokyo" onMouseDown={this.onCity} onMouseUp={this.mouseUp}>
-                    Токио
-                  </div>
-                  <div className="card-panel" id="oslo" onMouseDown={this.onCity} onMouseUp={this.mouseUp}>
-                    Осло
-                  </div>
-                  <div className="card-panel" id="london" onMouseDown={this.onCity} onMouseUp={this.mouseUp}>
-                    Лондон
-                  </div>
-                  <div className="card-panel" id="pekin" onMouseDown={this.onCity} onMouseUp={this.mouseUp}>
-                    Пекин
+                <div id="positionStart">
+                    <div className="card-panel" id="spb" onMouseDown={this.onCity} onMouseUp={this.mouseUp}>
+                      Санкт-Петербург
+                    </div>
+                    <div className="card-panel" id="madrid" onMouseDown={this.onCity} onMouseUp={this.mouseUp}>
+                      Мадрид
+                    </div>
+                    <div className="card-panel" id="berlin" onMouseDown={this.onCity} onMouseUp={this.mouseUp}>
+                      Берлин
+                    </div>
+                    <div className="card-panel" id="tokyo" onMouseDown={this.onCity} onMouseUp={this.mouseUp}>
+                      Токио
+                    </div>
+                    <div className="card-panel" id="oslo" onMouseDown={this.onCity} onMouseUp={this.mouseUp}>
+                      Осло
+                    </div>
+                    <div className="card-panel" id="london" onMouseDown={this.onCity} onMouseUp={this.mouseUp}>
+                      Лондон
+                    </div>
+                    <div className="card-panel" id="pekin" onMouseDown={this.onCity} onMouseUp={this.mouseUp}>
+                      Пекин
+                    </div>
                   </div>
                 </div>
                 </div>
                 <div className="col s6">
                   <div id="area">
-                    <div id="positionCity"></div>
+                    <div id="positionSelect"></div>
                   </div>
                 </div>
           </div>
