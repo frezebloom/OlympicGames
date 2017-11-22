@@ -28,7 +28,6 @@ class App extends Component {
   //перемещение
   moveAt = (event) => {
     const city = document.getElementById(this.state.city);
-    console.log(city);
     if(this.state.move){
       city.style.left = event.pageX - city.offsetWidth / 2 + 'px';
       city.style.top = event.pageY - city.offsetHeight / 2 + 'px';
@@ -44,38 +43,41 @@ class App extends Component {
   //клик мышкой
   onCity = (event) => {
     let city = document.getElementById(`${event.target.id}`);
-    console.log(city);
     city.style.position = 'absolute';
     this.mouseCoordinates(event);
     this.moveAt(event);
     document.body.appendChild(city);
     city.style.zIndex = 1000;
     this.setState({move: true, city: `${event.target.id}`})
-    console.log(this.state)
   }
 
   //отпускание мышки
   mouseUp = (event) => {
-    // this.state = ({move: false})
-    // let SPB = document.getElementById('spb');
-    // let mouse = this.mouseCoordinates(e);
-    // let area = document.getElementsByClassName('col s6')[3].getBoundingClientRect();
-    // if(mouse.x > area.left && mouse.x < area.right && mouse.y > area.top && mouse.y < area.bottom){
-    //   this.setState({move: false})
-    //   document.getElementById("area").appendChild(SPB);
-    //
-    //
-    //   SPB.style.position = 'relative';
-    //
-    //   SPB.parentNode.removeChild(SPB);
-    //   let city = '<div class=card-panel id=SPB onMouseDown="onSPB();">Санкт-перербург</div>'
-    //   document.getElementById("area").innerHTML+= city
-    //
-    // }
-    // else{
-    //   let city = '<div class=card-panel id=SPB>Санкт-перербург</div>'
-    //   document.getElementById("area").innerHTML+= city
-    // }
+
+    let city = document.getElementById(this.state.city);
+    let mouse = this.mouseCoordinates(event);
+    let area = document.getElementsByClassName('col s6')[3].getBoundingClientRect();
+    if(mouse.x > area.left && mouse.x < area.right && mouse.y > area.top && mouse.y < area.bottom){
+      this.setState({move: false})
+      // city.style.position = 'relative'
+      document.getElementsByClassName('col s6')[3].appendChild(city);
+      console.log(area)
+      console.log(city)
+      // this.setState({move: false})
+      // document.getElementById("area").appendChild(SPB);
+      //
+      //
+      // city.style.position = 'relative';
+      //
+      // city.parentNode.removeChild(SPB);
+      // let city = '<div class=card-panel id=SPB onMouseDown="onSPB();">Санкт-перербург</div>'
+      // document.getElementById("area").innerHTML+= city
+
+    }
+    else{
+      // let city = '<div class=card-panel id=SPB>Санкт-перербург</div>'
+      // document.getElementById("area").innerHTML+= city
+    }
   }
 
 
