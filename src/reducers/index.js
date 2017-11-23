@@ -2,13 +2,13 @@
 import { combineReducers } from 'redux';
 
 import validationName from './validationName'
-import validationSubname from './validationSubname'
+import validationSurname from './validationSurname'
 import validationLogin from './validationLogin'
 import validationPassword from './validationPassword'
 
 export default combineReducers({
    validationName,
-   validationSubname,
+   validationSurname,
    validationLogin,
-   validationPassword   
+   validationPassword
 })

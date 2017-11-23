@@ -4,8 +4,10 @@ import { connect } from "react-redux";
 class Input extends Component {
 
   value = (event) => {
-    event.target.name === "name" ? this.setState({ name: event.target.value }) : console.log('s')
-
+    event.target.name === "name" ? this.props.validationName(event.target.value) : false
+    event.target.name === "surname" ? this.props.validationSurname(event.target.value) : false
+    event.target.name === "login" ? this.props.validationLogin(event.target.value) : false
+    event.target.name === "password" ? this.props.validationPassword(event.target.value) : false
   }
 
   render() {
@@ -25,8 +27,8 @@ export default connect(
     validationName: state => {
       dispatch({ type: "VALIDATION_NAME", payload: state });
     },
-    validationSubname: state => {
-      dispatch({ type: "VALIDATION_SUBNAME", payload: state });
+    validationSurname: state => {
+      dispatch({ type: "VALIDATION_SURNAME", payload: state });
     },
     validationLogin: state => {
       dispatch({ type: "VALIDATION_LOGIN", payload: state });
