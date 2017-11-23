@@ -7,7 +7,7 @@ class App extends Component {
   state = {
     move: false,
     city: '',
-    selectCity: 0
+    selectCity: 'Вы выбрали 0 городов'
   }
   //координаты мыши
   mouseCoordinates = (e) => {
@@ -61,25 +61,32 @@ class App extends Component {
     let city = document.getElementById(this.state.city);
     let mouse = this.mouseCoordinates(event);
     let area = document.getElementsByClassName('col s6')[3].getBoundingClientRect();
-    var children = document.getElementById('positionSelect').children.length
-  
-    if(children < 3){
+    let childrenPositionSelect = document.getElementById('positionSelect').children.length
+    let childrenPositionStart = document.getElementById('positionStart').children.length
+
+    if(childrenPositionSelect < 3){
+      let a = document.getElementById('positionSelect').children.length + 1
+      this.setState({selectCity: `Вы выбрали ${a} город(а)`})
+
       if(mouse.x > area.left && mouse.x < area.right && mouse.y > area.top && mouse.y < area.bottom){
         this.setState({move: false})
         city.style.position = 'inherit'
         document.getElementById("positionSelect").appendChild(city);
+
       }
       else{
         city.style.position = 'inherit'
         document.getElementById('positionStart').appendChild(city);
         this.setState({move: false})
+        let a = document.getElementById('positionSelect').children.length
+        this.setState({selectCity: `Вы выбрали ${a} город(а)`})
+
       }
     }
     else{
       city.style.position = 'inherit'
       document.getElementById('positionStart').appendChild(city);
       this.setState({move: false})
-
     }
   }
 
@@ -139,7 +146,8 @@ class App extends Component {
                 </div>
                 <div className="col s6">
                   <div id="area">
-                    <p>Перетащите в эту область {this.state.selectCity} город(a)</p>
+                    <p>Перетащите в эту область 3 города</p>
+                    <p>{this.state.selectCity}</p>
                     <div id="positionSelect"></div>
                   </div>
                 </div>

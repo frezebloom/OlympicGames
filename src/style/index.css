@@ -52,6 +52,7 @@ body{
   border: 1px double #e7e7e7;
   max-width: 100%;
   min-height: 450px;
+  cursor: pointer;
 }
 #area p {
   opacity: 0.7;
