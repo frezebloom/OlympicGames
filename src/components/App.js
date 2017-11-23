@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
 
 import Input from './input.js';
 
 class App extends Component {
-
   state = {
     move: false,
     city: '',
@@ -92,6 +92,7 @@ class App extends Component {
 
 
   render() {
+    console.log(this.props.data)
     return (
       <div className="form">
         <div className="formHeader">
@@ -109,7 +110,7 @@ class App extends Component {
             </div>
             <div className="col s6">
               <div className="col xl12 m4 l2">
-                <Input type="text" name="country" placeholder="СТРАНА"/>
+                <Input type="text" name="surname" placeholder="ФАМИЛИЯ"/>
               </div>
               <div className="col xl12 m4 l2">
                 <Input type="password" name="password" placeholder="ПАРОЛЬ"/>
@@ -159,4 +160,9 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(
+  state => ({
+    data: state
+  }),
+  dispatch => ({ })
+)(App);
