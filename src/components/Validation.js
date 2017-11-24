@@ -13,6 +13,8 @@ class Validation extends Component {
   componentDidMount(){
     this.validationName();
     this.validationSurname();
+    this.validationLogin();
+    this.validationPassword();
   }
 
   validationName = () => {
@@ -20,11 +22,9 @@ class Validation extends Component {
     if(name === undefined){
       this.setState({
         validationName: "Заполните поле ИМЯ"
-
       })
     }
   }
-
 
   validationSurname = () => {
     let surname = this.props.data.validationSurname[this.props.data.validationSurname.length - 1]
@@ -35,25 +35,48 @@ class Validation extends Component {
     }
   }
 
-  // validationLogin = () => {
-  //   let login = this.props.data.validationLogin[this.props.data.validationLogin.length - 1]
-  // }
-  //
-  // validationPassword = () => {
-  //   let password = this.props.data.validationPassword[this.props.data.validationPassword.length - 1]
-  // }
+  validationLogin = () => {
+    let login = this.props.data.validationLogin[this.props.data.validationLogin.length - 1]
+    if(login === undefined){
+      this.setState({
+        validationLogin: "Заполните поле ЛОГИН"
+      })
+    }
+  }
+
+  validationPassword = () => {
+    let password = this.props.data.validationPassword[this.props.data.validationPassword.length - 1]
+    if(password === undefined){
+      this.setState({
+        password: "Заполните поле ПАРОЛЬ"
+      })
+    }
+  }
 
   render() {
-    console.log(this.state)
-    return (
-      <div className="validation">
-        <ul>
-          {Object.keys(this.state).map(error => (
-            <li key={error}>{this.state[error]}</li>
-          ))}
-        </ul>
 
+    return (
+      <div className="row">
+        <div className="col s12 m6">
+        <div className="validationName">
+          <div className="card blue-grey darken-1">
+            <div className="card-content white-text">
+                <ul>
+                  {Object.keys(this.state).map(error => (
+                    <li key={error}>{this.state[error]}</li>
+                  ))}
+                </ul>
+            <div className="card-action">
+              <a href="#">ОКЕЙ</a>
+            </div>
+          </div>
+        </div>
+        </div>
       </div>
+    </div>
+
+
+
     )
   }
 }

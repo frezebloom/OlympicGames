@@ -104,6 +104,7 @@ class App extends Component {
           Выбор столицы Олимпийских игр - 2032
         </div>
         <div className="bodyForm" onMouseMove={this.move}>
+        {showValidation ? <Validation /> : false}
           <div className="row">
             <div className="col s6">
               <div className="col xl12 m4 l2">
@@ -120,11 +121,6 @@ class App extends Component {
               <div className="col xl12 m4 l2">
                 <Input type="password" name="password" placeholder="ПАРОЛЬ"/>
               </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col s6">
-              {showValidation ? <Validation /> : false}
             </div>
           </div>
           <div className="row">
