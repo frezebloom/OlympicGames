@@ -4,27 +4,37 @@ import { connect } from "react-redux";
 class Validation extends Component {
 
   state = {
-    validationName: 'ss',
+    validationName: '',
     validationSurname: '',
     validationLogin: '',
     validationPassword: ''
   }
 
+  componentDidMount(){
+    this.validationName();
+    this.validationSurname();
+  }
 
   validationName = () => {
     let name = this.props.data.validationName[this.props.data.validationName.length - 1]
-    if(name.length === 1){
-      console.log(name.length)
+    if(name === undefined){
       this.setState({
-        validationName: 'Введите пожалуйста имя'
+        validationName: "Заполните поле ИМЯ"
+
       })
     }
   }
 
-  // validationSurname = () => {
-  //   let surname = this.props.data.validationSurname[this.props.data.validationSurname.length - 1]
-  // }
-  //
+
+  validationSurname = () => {
+    let surname = this.props.data.validationSurname[this.props.data.validationSurname.length - 1]
+    if(surname === undefined){
+      this.setState({
+        validationSurname: "Заполните поле ФАМИЛИЯ"
+      })
+    }
+  }
+
   // validationLogin = () => {
   //   let login = this.props.data.validationLogin[this.props.data.validationLogin.length - 1]
   // }
@@ -34,10 +44,13 @@ class Validation extends Component {
   // }
 
   render() {
+    console.log(this.state)
     return (
       <div className="validation">
         <ul>
-          <li>{this.state.validationName}</li>
+          {Object.keys(this.state).map(error => (
+            <li key={error}>{this.state[error]}</li>
+          ))}
         </ul>
 
       </div>

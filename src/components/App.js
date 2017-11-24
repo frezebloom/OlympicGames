@@ -91,6 +91,10 @@ class App extends Component {
     }
   }
 
+  go = () => {
+    this.props.showValidation(true);
+  }
+
 
   render() {
     let showValidation = this.props.data.showValidation
@@ -159,7 +163,7 @@ class App extends Component {
                   </div>
                 </div>
           </div>
-          <a className="waves-effect waves-light btn">Отправить</a>
+          <a className="waves-effect waves-light btn" onClick={this.go}>Отправить</a>
         </div>
       </div>
     )
@@ -170,5 +174,9 @@ export default connect(
   state => ({
     data: state
   }),
-  dispatch => ({ })
+  dispatch => ({
+    showValidation: state => {
+      dispatch({ type: "SHOW_VALIDATION", payload: state });
+    }
+  })
 )(App);
