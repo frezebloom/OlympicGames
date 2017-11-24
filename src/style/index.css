@@ -55,6 +55,12 @@ body{
   cursor: pointer;
 }
 #area p {
+  font-size: 14px;
   opacity: 0.7;
   color: black;
+}
+#p{
+  font-size: 18px;
+  opacity: 1;
+  font-weight: bold;
 }
