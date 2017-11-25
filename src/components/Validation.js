@@ -21,7 +21,7 @@ class Validation extends Component {
     let name = this.props.data.validationName[this.props.data.validationName.length - 1]
     if(name === undefined){
       this.setState({
-        validationName: "Заполните поле ИМЯ"
+        validationName: "→ Заполните поле ИМЯ"
       })
     }
   }
@@ -30,7 +30,7 @@ class Validation extends Component {
     let surname = this.props.data.validationSurname[this.props.data.validationSurname.length - 1]
     if(surname === undefined){
       this.setState({
-        validationSurname: "Заполните поле ФАМИЛИЯ"
+        validationSurname: "→ Заполните поле ФАМИЛИЯ"
       })
     }
   }
@@ -39,7 +39,7 @@ class Validation extends Component {
     let login = this.props.data.validationLogin[this.props.data.validationLogin.length - 1]
     if(login === undefined){
       this.setState({
-        validationLogin: "Заполните поле ЛОГИН"
+        validationLogin: "→ Заполните поле ЛОГИН"
       })
     }
   }
@@ -48,7 +48,7 @@ class Validation extends Component {
     let password = this.props.data.validationPassword[this.props.data.validationPassword.length - 1]
     if(password === undefined){
       this.setState({
-        password: "Заполните поле ПАРОЛЬ"
+        password: "→ Заполните поле ПАРОЛЬ"
       })
     }
   }
@@ -56,24 +56,23 @@ class Validation extends Component {
   render() {
 
     return (
-      <div className="row">
-        <div className="col s12 m6">
-        <div className="validationName">
+      <div className="validation">
+        <div className="row">
           <div className="card blue-grey darken-1">
             <div className="card-content white-text">
-                <ul>
-                  {Object.keys(this.state).map(error => (
-                    <li key={error}>{this.state[error]}</li>
-                  ))}
-                </ul>
-            <div className="card-action">
-              <a href="#">ОКЕЙ</a>
+              <ul>
+                {Object.keys(this.state).map(error => (
+                  <li key={error}>{this.state[error]}</li>
+                ))}
+              </ul>
+              <div className="card-action">
+                <a href="#">ОКЕЙ</a>
+              </div>
             </div>
           </div>
         </div>
-        </div>
       </div>
-    </div>
+
 
 
 

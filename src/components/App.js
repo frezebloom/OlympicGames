@@ -61,7 +61,7 @@ class App extends Component {
   mouseUp = (event) => {
     let city = document.getElementById(this.state.city);
     let mouse = this.mouseCoordinates(event);
-    let area = document.getElementsByClassName('col s6')[4].getBoundingClientRect();
+    let area = document.getElementsByClassName('col s6')[3].getBoundingClientRect();
     let childrenPositionSelect = document.getElementById('positionSelect').children.length
     let childrenPositionStart = document.getElementById('positionStart').children.length
 
