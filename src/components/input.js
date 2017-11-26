@@ -3,11 +3,24 @@ import { connect } from "react-redux";
 
 class Input extends Component {
 
+  validationName = (event) => {
+    let name = event.target.value
+    var errorMessage = ''
+    if(name.length < 0){
+      errorMessage = 'Поле должно быть заполнено'
+    }
+    if(/^[a-zA-Zа-яА-Я'][a-zA-Zа-яА-Я-' ]+[a-zA-Zа-яА-Я']?$/.test(name) === false){
+      errorMessage = 'Введите правильное имя'
+    }
+    console.log(errorMessage)
+  }
+
+
   value = (event) => {
-    event.target.name === "name" ? this.props.validationName(event.target.value) : false
-    event.target.name === "surname" ? this.props.validationSurname(event.target.value) : false
-    event.target.name === "login" ? this.props.validationLogin(event.target.value) : false
-    event.target.name === "password" ? this.props.validationPassword(event.target.value) : false
+    event.target.name === "name" ? this.validationName(event) : false
+    // event.target.name === "surname" ? this.props.validationSurname(event.target.value) : false
+    // event.target.name === "login" ? this.props.validationLogin(event.target.value) : false
+    // event.target.name === "password" ? this.props.validationPassword(event.target.value) : false
   }
 
   render() {

@@ -93,11 +93,14 @@ class App extends Component {
 
   go = () => {
     this.props.showValidation(true);
+    console.log('w')
   }
 
 
   render() {
-    let showValidation = this.props.data.showValidation
+    let showValidation = this.props.data.showValidation[this.props.data.showValidation.length - 1]
+    console.log(showValidation)
+    console.log(this.props.data.showValidation)
     return (
       <div className="form">
         <div className="formHeader">
