@@ -98,9 +98,8 @@ class App extends Component {
 
 
   render() {
+    console.log(this.state)
     let showValidation = this.props.data.showValidation[this.props.data.showValidation.length - 1]
-    console.log(showValidation)
-    console.log(this.props.data.showValidation)
     return (
       <div className="form">
         <div className="formHeader">
@@ -111,18 +110,18 @@ class App extends Component {
           <div className="row">
             <div className="col s6">
               <div className="col xl12 m4 l2">
-                <Input type="text" name="name" placeholder="ИМЯ" />
+                <Input type="text" name="name" placeholder="ИМЯ" id="name"/>
               </div>
               <div className="col xl12 m4 l2">
-                <Input type="text" name="login" placeholder="ЛОГИН" />
+                <Input type="text" name="login" placeholder="ЛОГИН" id="login"/>
               </div>
             </div>
             <div className="col s6">
               <div className="col xl12 m4 l2">
-                <Input type="text" name="surname" placeholder="ФАМИЛИЯ"/>
+                <Input type="text" name="surname" placeholder="ФАМИЛИЯ" id="surname"/>
               </div>
               <div className="col xl12 m4 l2">
-                <Input type="password" name="password" placeholder="ПАРОЛЬ"/>
+                <Input type="password" name="password" placeholder="ПАРОЛЬ" id="password"/>
               </div>
             </div>
           </div>
