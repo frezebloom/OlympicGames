@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 class Input extends Component {
 
+  //Проверка поля имени (name)
   validationName = (event) => {
     let name = event.target.value
     let nameTag = document.getElementById("name")
@@ -21,6 +22,7 @@ class Input extends Component {
     }
   }
 
+  //Проверка поля фамилии (surname)
   validationSurname = (event) => {
     let surname = event.target.value
     let nameTag = document.getElementById("surname")
@@ -47,18 +49,18 @@ class Input extends Component {
   }
 
   render() {
-    var action
+    var errorMessage
     if(this.props.id === "name"){
-      action = this.props.data.validationName[this.props.data.validationName.length - 1]
+      errorMessage = this.props.data.validationName[this.props.data.validationName.length - 1]
     }
     if(this.props.id === "surname"){
-      action = this.props.data.validationSurname[this.props.data.validationSurname.length - 1]
+      errorMessage = this.props.data.validationSurname[this.props.data.validationSurname.length - 1]
     }
 
     return (
       <div className="input">
         <input type={this.props.type} id={this.props.id} name={this.props.name} title="подсказка" placeholder={this.props.placeholder} onChange={this.value}/>
-        <div className="errorMessage">{action}</div>
+        <div className="errorMessage">{errorMessage}</div>
       </div>
     )
   }
