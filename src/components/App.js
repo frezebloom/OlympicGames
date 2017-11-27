@@ -98,7 +98,6 @@ class App extends Component {
 
 
   render() {
-    console.log(this.state)
     let showValidation = this.props.data.showValidation[this.props.data.showValidation.length - 1]
     return (
       <div className="form">

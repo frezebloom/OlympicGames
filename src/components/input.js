@@ -33,7 +33,6 @@ class Input extends Component {
     else{
       this.props.validationSurname('')
       nameTag.style.color = "#26a69a"
-
     }
     if(surname.length < 1){
       this.props.validationSurname('Поле должно быть заполнено')
@@ -41,10 +40,32 @@ class Input extends Component {
     }
   }
 
+  //Проверка поля Логин (login)
+  validationLogin = (event) => {
+    let login = event.target.value
+    let nameTag = document.getElementById("login")
+    if(/^[a-zA-Z1-9]+$/.test(login) === false){
+      this.props.validationLogin('В логине должны быть только латинские буквы')
+      nameTag.style.color = "#e21b1b"
+    }
+    else{
+      this.props.validationLogin('')
+      nameTag.style.color = "#26a69a"
+    }
+    if(login.length < 4 || login.length > 20){
+      this.props.validationLogin('Логин должен состоять от 4 до 20 символов')
+      nameTag.style.color = "#e21b1b"
+    }
+    if(parseInt(login.substr(0, 1))){
+      this.props.validationLogin('Логин должен начинаться с буквы')
+      nameTag.style.color = "#e21b1b"
+    }
+  }
+
   value = (event) => {
     event.target.name === "name" ? this.validationName(event) : false
     event.target.name === "surname" ? this.validationSurname(event) : false
-    // event.target.name === "login" ? this.props.validationLogin(event.target.value) : false
+    event.target.name === "login" ? this.validationLogin(event) : false
     // event.target.name === "password" ? this.props.validationPassword(event.target.value) : false
   }
 
@@ -56,6 +77,13 @@ class Input extends Component {
     if(this.props.id === "surname"){
       errorMessage = this.props.data.validationSurname[this.props.data.validationSurname.length - 1]
     }
+    if(this.props.id === "login"){
+      errorMessage = this.props.data.validationLogin[this.props.data.validationLogin.length - 1]
+        console.log(this.props.id)
+    }
+    // console.log(errorMessage)
+    // console.log(this.props.data.validationLogin)
+
 
     return (
       <div className="input">
