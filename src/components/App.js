@@ -216,7 +216,7 @@ class App extends Component {
             </div>
             <div className="col s6">
               <div id="area">
-                <p>Перетащите в эту область 3 города</p>
+                <p>Перетащите город в эту область. Вы можете выбрать до 3 городов</p>
                 <p id="p">{this.state.selectCity}</p>
                 <div id="positionSelect" />
               </div>

@@ -19,7 +19,7 @@ class Input extends Component {
       this.props.messageFlag(false)
     }
     if (name.length < 1) {
-      this.props.validationName("Поле должно быть заполнено");
+      this.props.validationName("Поле имя должно быть заполнено");
       nameTag.style.color = "#e21b1b";
       this.props.messageFlag(true)
     }
@@ -43,7 +43,7 @@ class Input extends Component {
       this.props.messageFlag(false)
     }
     if (surname.length < 1) {
-      this.props.validationSurname("Поле должно быть заполнено");
+      this.props.validationSurname("Поле фамилия должно быть заполнено");
       nameTag.style.color = "#e21b1b";
       this.props.messageFlag(true)
     }
@@ -74,7 +74,7 @@ class Input extends Component {
       this.props.messageFlag(true)
     }
     if (login.length < 1) {
-      this.props.validationLogin("Поле должно быть заполнено");
+      this.props.validationLogin("Поле логин должно быть заполнено");
       nameTag.style.color = "#e21b1b";
       this.props.messageFlag(true)
     }
@@ -97,7 +97,7 @@ class Input extends Component {
       this.props.userPassword(password);
     }
     if (password.length < 1) {
-      this.props.validationPassword("Поле должно быть заполнено");
+      this.props.validationPassword("Поле пароль должно быть заполнено");
       nameTag.style.color = "#e21b1b";
       this.props.messageFlag(true)
     }

@@ -8,13 +8,16 @@ class Message extends Component {
     validationSurname: this.props.data.validationSurname[this.props.data.validationSurname.length - 1],
     validationLogin: this.props.data.validationLogin[this.props.data.validationLogin.length - 1],
     validationPassword: this.props.data.validationPassword[this.props.data.validationPassword.length - 1],
+    und: ""
   }
 
-  ok = () => {
-    this.props.showMessage(false)
+  st = () => {
+    this.setState({
+      und: "Заполните все поля"
+    })
   }
 
-  render() {
+  componentDidMount(){
     var validationNull = [
       this.props.data.userName[this.props.data.userName.length - 1],
       this.props.data.userSurname[this.props.data.userSurname.length - 1],
@@ -22,13 +25,20 @@ class Message extends Component {
       this.props.data.userPassword[this.props.data.userPassword.length - 1],
       this.props.data.validationCity[this.props.data.validationCity.length - 1]
     ]
-
     validationNull.forEach((item, index) => {
       if(!item){
         this.props.messageFlag(true)
+        this.st()
       }
     })
+  }
 
+
+  ok = () => {
+    this.props.showMessage(false)
+  }
+
+  render() {
     var flag = this.props.data.messageFlag[this.props.data.messageFlag.length - 1]
     var userName = this.props.data.userName[this.props.data.userName.length - 1]
     var userSurname = this.props.data.userSurname[this.props.data.userSurname.length - 1]
@@ -39,7 +49,7 @@ class Message extends Component {
                        validationSurname: this.state.validationSurname,
                        validationLogin: this.state.validationLogin,
                        validationPassword: this.state.validationPassword,
-                       validationPasswords: 'as'
+                       validationPasswords: this.state.und
                      }
     }
     else{
@@ -48,6 +58,8 @@ class Message extends Component {
                      }
       var city = this.props.data.validationCity[this.props.data.validationCity.length - 1]
     }
+
+    console.log(this.props.data.validationCity[this.props.data.validationCity.length - 1])
 
     return (
       <div className="message">
