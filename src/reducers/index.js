@@ -8,6 +8,7 @@ import showMessage from "./showMessage";
 import validationCity from "./validationCity";
 import userName from "./userName";
 import userSurname from "./userSurname";
+import messageFlag from "./messageFlag";
 
 export default combineReducers({
   validationName,
@@ -17,5 +18,6 @@ export default combineReducers({
   showMessage,
   validationCity,
   userName,
-  userSurname
+  userSurname,
+  messageFlag
 });
