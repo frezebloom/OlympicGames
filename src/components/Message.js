@@ -10,9 +10,25 @@ class Message extends Component {
     validationPassword: this.props.data.validationPassword[this.props.data.validationPassword.length - 1],
   }
 
-  ok = () => {this.props.showMessage(false)}
+  ok = () => {
+    this.props.showMessage(false)
+  }
 
   render() {
+    var validationNull = [
+      this.props.data.userName[this.props.data.userName.length - 1],
+      this.props.data.userSurname[this.props.data.userSurname.length - 1],
+      this.props.data.userLogin[this.props.data.userLogin.length - 1],
+      this.props.data.userPassword[this.props.data.userPassword.length - 1],
+      this.props.data.validationCity[this.props.data.validationCity.length - 1]
+    ]
+
+    validationNull.forEach((item, index) => {
+      if(!item){
+        this.props.messageFlag(true)
+      }
+    })
+
     var flag = this.props.data.messageFlag[this.props.data.messageFlag.length - 1]
     var userName = this.props.data.userName[this.props.data.userName.length - 1]
     var userSurname = this.props.data.userSurname[this.props.data.userSurname.length - 1]
@@ -22,17 +38,16 @@ class Message extends Component {
                        validationName: this.state.validationName,
                        validationSurname: this.state.validationSurname,
                        validationLogin: this.state.validationLogin,
-                       validationPassword: this.state.validationPassword
+                       validationPassword: this.state.validationPassword,
+                       validationPasswords: 'as'
                      }
     }
     else{
       var messages = {
-                      validationName: 'sdadsdsadas',
-                      validationSurname: '2'
+                      fullName: `${userName} ${userSurname}`,
                      }
+      var city = this.props.data.validationCity[this.props.data.validationCity.length - 1]
     }
-
-    console.log(flag)
 
     return (
       <div className="message">
@@ -43,10 +58,10 @@ class Message extends Component {
               {Object.keys(messages).map(message => (
                 <li key={message}>{messages[message]}</li>
               ))}
-              {this.props.data.validationCity}
+              {city}
               </ul>
               <div className="card-action">
-                <a href="#" onClick={this.ok}>ОКЕЙ</a>
+                <a onClick={this.ok}>ОКЕЙ</a>
               </div>
             </div>
           </div>
@@ -63,6 +78,9 @@ export default connect(
   dispatch => ({
     showMessage: state => {
       dispatch({ type: "SHOW_MESSAGE", payload: state });
+    },
+    messageFlag: state => {
+      dispatch({ type: "FLAG_MESSAGE", payload: state });
     }
   })
 )(Message);

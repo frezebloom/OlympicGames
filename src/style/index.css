@@ -16,6 +16,7 @@ body {
   -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+
 }
 .formHeader {
   width: 100%;
@@ -69,8 +70,12 @@ body {
   width: 600px;
   left: 50%;
   margin-left: -300px;
+  z-index: 999;
 }
 .errorMessage {
   color: #e21b1b;
   font-size: 14px;
+}
+a{
+  cursor: pointer;
 }

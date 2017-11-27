@@ -60,6 +60,7 @@ class Input extends Component {
     } else {
       this.props.validationLogin("");
       nameTag.style.color = "#26a69a";
+      this.props.userLogin(login);
       this.props.messageFlag(false)
     }
     if (login.length < 4 || login.length > 20) {
@@ -93,6 +94,7 @@ class Input extends Component {
       this.props.validationPassword("");
       nameTag.style.color = "#26a69a";
       this.props.messageFlag(false)
+      this.props.userPassword(password);
     }
     if (password.length < 1) {
       this.props.validationPassword("Поле должно быть заполнено");
@@ -171,6 +173,12 @@ export default connect(
     },
     messageFlag: state => {
       dispatch({ type: "FLAG_MESSAGE", payload: state });
-    }
+    },
+    userLogin: state => {
+      dispatch({ type: "USER_LOGIN", payload: state });
+    },
+    userPassword: state => {
+      dispatch({ type: "USER_PASSWORD", payload: state });
+    },
   })
 )(Input);

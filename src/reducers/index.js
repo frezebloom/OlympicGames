@@ -9,6 +9,8 @@ import validationCity from "./validationCity";
 import userName from "./userName";
 import userSurname from "./userSurname";
 import messageFlag from "./messageFlag";
+import userLogin from "./userLogin";
+import userPassword from "./userPassword";
 
 export default combineReducers({
   validationName,
@@ -19,5 +21,7 @@ export default combineReducers({
   validationCity,
   userName,
   userSurname,
-  messageFlag
+  messageFlag,
+  userLogin,
+  userPassword
 });

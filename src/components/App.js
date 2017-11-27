@@ -108,6 +108,7 @@ class App extends Component {
   showMessage = () => {
     this.props.showMessage(true);
   };
+
   render() {
     let showMessage = this.props.data.showMessage[
       this.props.data.showMessage.length - 1
