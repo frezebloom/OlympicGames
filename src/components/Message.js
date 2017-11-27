@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 
 class Message extends Component {
 
-
   state = {
     name: this.props.data.validationName[this.props.data.validationName.length - 1],
     surname: this.props.data.validationSurname[this.props.data.validationSurname.length - 1],
@@ -13,6 +12,10 @@ class Message extends Component {
 
   ok = () => {
     this.props.showMessage(false)
+  }
+
+  formationJson = () => {
+    
   }
 
   render() {
@@ -27,6 +30,7 @@ class Message extends Component {
               {Object.keys(this.state).map(error => (
                 <li key={error}>{this.state[error]}</li>
               ))}
+              {this.props.data.validationCity}
               </ul>
               <div className="card-action">
                 <a href="#" onClick={this.ok}>ОКЕЙ</a>

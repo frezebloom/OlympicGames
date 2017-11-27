@@ -69,10 +69,13 @@ class App extends Component {
       let a = document.getElementById('positionSelect').children.length + 1
       this.setState({selectCity: `Вы выбрали ${a} / 3`})
 
+
       if(mouse.x > area.left && mouse.x < area.right && mouse.y > area.top && mouse.y < area.bottom){
         this.setState({move: false})
         city.style.position = 'inherit'
         document.getElementById("positionSelect").appendChild(city);
+        this.props.validationCity(document.getElementById("positionSelect").innerText)
+
 
       }
       else{
@@ -92,10 +95,10 @@ class App extends Component {
   }
 
   showMessage = () => {
-    this.props.showMessage(true);
-    console.log('w')
+    this.props.showMessage(true)
   }
-  render() {
+  render(){
+    console.log(this.props.data)
     let showMessage = this.props.data.showMessage[this.props.data.showMessage.length - 1]
     return (
       <div className="form">
@@ -172,6 +175,9 @@ export default connect(
   dispatch => ({
     showMessage: state => {
       dispatch({ type: "SHOW_MESSAGE", payload: state });
+    },
+    validationCity: state => {
+      dispatch({ type: "VALIDATION_CITY", payload: state });
     }
   })
 )(App);
