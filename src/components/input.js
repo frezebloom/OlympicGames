@@ -60,13 +60,35 @@ class Input extends Component {
       this.props.validationLogin('Логин должен начинаться с буквы')
       nameTag.style.color = "#e21b1b"
     }
+    if(login.length < 1){
+      this.props.validationLogin('Поле должно быть заполнено')
+      nameTag.style.color = "#e21b1b"
+    }
+  }
+
+  //Проверка поля Пароль (password)
+  validationPassword = (event) => {
+    let password = event.target.value
+    let nameTag = document.getElementById("password")
+    if(/([0-9])+/g.test(password) === false){
+      this.props.validationPassword('Пароль должен содержать хотя бы одну цифру')
+      nameTag.style.color = "#e21b1b"
+    }
+    else{
+      this.props.validationPassword('')
+      nameTag.style.color = "#26a69a"
+    }
+    if(password.length < 1){
+      this.props.validationPassword('Поле должно быть заполнено')
+      nameTag.style.color = "#e21b1b"
+    }
   }
 
   value = (event) => {
     event.target.name === "name" ? this.validationName(event) : false
     event.target.name === "surname" ? this.validationSurname(event) : false
     event.target.name === "login" ? this.validationLogin(event) : false
-    // event.target.name === "password" ? this.props.validationPassword(event.target.value) : false
+    event.target.name === "password" ? this.validationPassword(event) : false
   }
 
   render() {
@@ -79,12 +101,10 @@ class Input extends Component {
     }
     if(this.props.id === "login"){
       errorMessage = this.props.data.validationLogin[this.props.data.validationLogin.length - 1]
-        console.log(this.props.id)
     }
-    // console.log(errorMessage)
-    // console.log(this.props.data.validationLogin)
-
-
+    if(this.props.id === "password"){
+      errorMessage = this.props.data.validationPassword[this.props.data.validationPassword.length - 1]
+    }
     return (
       <div className="input">
         <input type={this.props.type} id={this.props.id} name={this.props.name} title="подсказка" placeholder={this.props.placeholder} onChange={this.value}/>
