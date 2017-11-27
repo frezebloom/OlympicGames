@@ -15,7 +15,7 @@ class Message extends Component {
   }
 
   formationJson = () => {
-    
+
   }
 
   render() {
