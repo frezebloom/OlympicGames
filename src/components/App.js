@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 
 import Input from './input.js';
-import Validation from './Validation.js'
+import Message from './Message.js'
 
 class App extends Component {
   state = {
@@ -91,21 +91,20 @@ class App extends Component {
     }
   }
 
-  go = () => {
-    this.props.showValidation(true);
+  showMessage = () => {
+    this.props.showMessage(true);
     console.log('w')
   }
-
-
   render() {
-    let showValidation = this.props.data.showValidation[this.props.data.showValidation.length - 1]
+    console.log(this.props.data.showMessage)
+    let showMessage = this.props.data.showMessage[this.props.data.showMessage.length - 1]
     return (
       <div className="form">
         <div className="formHeader">
           Выбор столицы Олимпийских игр - 2032
         </div>
         <div className="bodyForm" onMouseMove={this.move}>
-        {showValidation ? <Validation /> : false}
+        {showMessage ? <Message /> : false}
           <div className="row">
             <div className="col s6">
               <div className="col xl12 m4 l2">
@@ -160,7 +159,7 @@ class App extends Component {
                   </div>
                 </div>
           </div>
-          <a className="waves-effect waves-light btn" onClick={this.go}>Отправить</a>
+          <a className="waves-effect waves-light btn" onClick={this.showMessage}>Отправить</a>
         </div>
       </div>
     )
@@ -172,8 +171,8 @@ export default connect(
     data: state
   }),
   dispatch => ({
-    showValidation: state => {
-      dispatch({ type: "SHOW_VALIDATION", payload: state });
+    showMessage: state => {
+      dispatch({ type: "SHOW_MESSAGE", payload: state });
     }
   })
 )(App);

@@ -1,27 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 
-class Validation extends Component {
+class Message extends Component {
+  // {Object.keys(this.state).map(error => (
+  //   <li key={error}>{this.state[error]}</li>
+  // ))}
 
-  ok = (event) => {
-    // event.preventDefault()
-    this.props.showValidation(false)
+  ok = () => {
+    this.props.showMessage(false)
   }
 
   render() {
-
     return (
-      <div className="validation">
+      <div className="message">
         <div className="row">
           <div className="card blue-grey darken-1">
             <div className="card-content white-text">
               <ul>
-                {Object.keys(this.state).map(error => (
-                  <li key={error}>{this.state[error]}</li>
-                ))}
+
               </ul>
               <div className="card-action">
-                <a href="#" onClick={this.ok()}>ОКЕЙ</a>
+                <a href="#" onClick={this.ok}>ОКЕЙ</a>
               </div>
             </div>
           </div>
@@ -36,8 +35,8 @@ export default connect(
     data: state
   }),
   dispatch => ({
-    showValidation: state => {
-      dispatch({ type: "SHOW_VALIDATION", payload: state });
+    showMessage: state => {
+      dispatch({ type: "SHOW_MESSAGE", payload: state });
     }
   })
-)(Validation);
+)(Message);
