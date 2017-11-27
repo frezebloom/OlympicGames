@@ -96,7 +96,6 @@ class App extends Component {
     console.log('w')
   }
   render() {
-    console.log(this.props.data.showMessage)
     let showMessage = this.props.data.showMessage[this.props.data.showMessage.length - 1]
     return (
       <div className="form">
