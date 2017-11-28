@@ -33,7 +33,7 @@ class App extends Component {
     this.moveAt(event);
     let mouse = this.mouseCoordinates(event);
     let area = document
-      .getElementsByClassName("col s6")[3]
+      .getElementsByClassName("col s6")[7]
       .getBoundingClientRect();
     var ar = document.getElementById("area");
     if (
@@ -68,12 +68,13 @@ class App extends Component {
     let city = document.getElementById(this.state.city);
     let mouse = this.mouseCoordinates(event);
     let area = document
-      .getElementsByClassName("col s6")[3]
+      .getElementsByClassName("col s6")[7]
       .getBoundingClientRect();
     let childrenPositionSelect = document.getElementById("positionSelect")
       .children.length;
     let childrenPositionStart = document.getElementById("positionStart")
       .children.length;
+            console.log(document.getElementsByClassName("col s6")[7])
 
     if (childrenPositionSelect < 3) {
       let a = document.getElementById("positionSelect").children.length + 1;
@@ -85,6 +86,7 @@ class App extends Component {
         mouse.y > area.top &&
         mouse.y < area.bottom
       ) {
+        console.log('s')
         this.setState({ move: false });
         city.style.position = "inherit";
         document.getElementById("positionSelect").appendChild(city);
@@ -97,6 +99,7 @@ class App extends Component {
         this.setState({ move: false });
         let a = document.getElementById("positionSelect").children.length;
         this.setState({ selectCity: `Вы выбрали ${a} / 3` });
+        console.log('непопал')
       }
     } else {
       city.style.position = "inherit";
@@ -110,6 +113,7 @@ class App extends Component {
   };
 
   render() {
+    console.log(this.state)
     let showMessage = this.props.data.showMessage[
       this.props.data.showMessage.length - 1
     ];
@@ -120,11 +124,10 @@ class App extends Component {
           {showMessage ? <Message /> : false}
           <div className="row">
             <div className="col s6">
-              <div class="input-field col s6">
+              <div className="input-field col s6">
                 <Input type="text" name="name" placeholder="ИМЯ" id="name" />
               </div>
-
-              <div class="input-field col s6">
+              <div className="input-field col s6">
                 <Input
                   type="text"
                   name="surname"
@@ -134,7 +137,7 @@ class App extends Component {
               </div>
             </div>
             <div className="col s6">
-              <div class="input-field col s6">
+              <div className="input-field col s6">
                 <Input
                   type="text"
                   name="login"
@@ -143,7 +146,7 @@ class App extends Component {
                 />
               </div>
 
-              <div class="input-field col s6">
+              <div className="input-field col s6">
                 <Input
                   type="password"
                   name="password"
