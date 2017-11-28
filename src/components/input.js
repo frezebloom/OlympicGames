@@ -11,17 +11,17 @@ class Input extends Component {
     ) {
       this.props.validationName("Введите правильное имя");
       nameTag.style.color = "#e21b1b";
-      this.props.messageFlag(true)
+      this.props.messageFlag(true);
     } else {
       this.props.validationName("");
       nameTag.style.color = "#26a69a";
       this.props.userName(name);
-      this.props.messageFlag(false)
+      this.props.messageFlag(false);
     }
     if (name.length < 1) {
       this.props.validationName("Поле имя должно быть заполнено");
       nameTag.style.color = "#e21b1b";
-      this.props.messageFlag(true)
+      this.props.messageFlag(true);
     }
   };
 
@@ -35,17 +35,17 @@ class Input extends Component {
     ) {
       this.props.validationSurname("Введите правильную фамилию");
       nameTag.style.color = "#e21b1b";
-      this.props.messageFlag(true)
+      this.props.messageFlag(true);
     } else {
       this.props.validationSurname("");
       nameTag.style.color = "#26a69a";
       this.props.userSurname(surname);
-      this.props.messageFlag(false)
+      this.props.messageFlag(false);
     }
     if (surname.length < 1) {
       this.props.validationSurname("Поле фамилия должно быть заполнено");
       nameTag.style.color = "#e21b1b";
-      this.props.messageFlag(true)
+      this.props.messageFlag(true);
     }
   };
 
@@ -56,27 +56,27 @@ class Input extends Component {
     if (/^[a-zA-Z1-9]+$/.test(login) === false) {
       this.props.validationLogin("В логине должны быть только латинские буквы");
       nameTag.style.color = "#e21b1b";
-      this.props.messageFlag(true)
+      this.props.messageFlag(true);
     } else {
       this.props.validationLogin("");
       nameTag.style.color = "#26a69a";
       this.props.userLogin(login);
-      this.props.messageFlag(false)
+      this.props.messageFlag(false);
     }
     if (login.length < 4 || login.length > 20) {
       this.props.validationLogin("Логин должен состоять от 4 до 20 символов");
       nameTag.style.color = "#e21b1b";
-      this.props.messageFlag(true)
+      this.props.messageFlag(true);
     }
     if (parseInt(login.substr(0, 1))) {
       this.props.validationLogin("Логин должен начинаться с буквы");
       nameTag.style.color = "#e21b1b";
-      this.props.messageFlag(true)
+      this.props.messageFlag(true);
     }
     if (login.length < 1) {
       this.props.validationLogin("Поле логин должно быть заполнено");
       nameTag.style.color = "#e21b1b";
-      this.props.messageFlag(true)
+      this.props.messageFlag(true);
     }
   };
 
@@ -89,17 +89,17 @@ class Input extends Component {
         "Пароль должен содержать хотя бы одну цифру"
       );
       nameTag.style.color = "#e21b1b";
-      this.props.messageFlag(true)
+      this.props.messageFlag(true);
     } else {
       this.props.validationPassword("");
       nameTag.style.color = "#26a69a";
-      this.props.messageFlag(false)
+      this.props.messageFlag(false);
       this.props.userPassword(password);
     }
     if (password.length < 1) {
       this.props.validationPassword("Поле пароль должно быть заполнено");
       nameTag.style.color = "#e21b1b";
-      this.props.messageFlag(true)
+      this.props.messageFlag(true);
     }
   };
 
@@ -179,6 +179,6 @@ export default connect(
     },
     userPassword: state => {
       dispatch({ type: "USER_PASSWORD", payload: state });
-    },
+    }
   })
 )(Input);

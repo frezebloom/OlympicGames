@@ -9,7 +9,7 @@ body {
 .form {
   width: 70%;
   top: 50px;
-  height: 1020px;
+  height: auto;
   margin: 0 auto;
   background: #fff;
   border: 1px double #e7e7e7;
@@ -50,7 +50,7 @@ body {
 #area {
   border: 1px double #e7e7e7;
   max-width: 100%;
-  min-height: 450px;
+  min-height: 600px;
   cursor: pointer;
 }
 #area p {

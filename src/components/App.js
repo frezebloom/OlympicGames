@@ -74,7 +74,7 @@ class App extends Component {
       .children.length;
     let childrenPositionStart = document.getElementById("positionStart")
       .children.length;
-            console.log(document.getElementsByClassName("col s6")[7])
+    console.log(document.getElementsByClassName("col s6")[7]);
 
     if (childrenPositionSelect < 3) {
       let a = document.getElementById("positionSelect").children.length + 1;
@@ -86,7 +86,7 @@ class App extends Component {
         mouse.y > area.top &&
         mouse.y < area.bottom
       ) {
-        console.log('s')
+        console.log("s");
         this.setState({ move: false });
         city.style.position = "inherit";
         document.getElementById("positionSelect").appendChild(city);
@@ -99,7 +99,7 @@ class App extends Component {
         this.setState({ move: false });
         let a = document.getElementById("positionSelect").children.length;
         this.setState({ selectCity: `Вы выбрали ${a} / 3` });
-        console.log('непопал')
+        console.log("непопал");
       }
     } else {
       city.style.position = "inherit";
@@ -113,7 +113,7 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state)
+    console.log(this.state);
     let showMessage = this.props.data.showMessage[
       this.props.data.showMessage.length - 1
     ];
