@@ -16,11 +16,9 @@ body {
   -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-
 }
 .formHeader {
   width: 100%;
-  font-size: 20px;
   padding: 8px;
   background: #f8f8f8;
   border-width: 0px 0px 1px 0px;

@@ -120,20 +120,11 @@ class App extends Component {
           {showMessage ? <Message /> : false}
           <div className="row">
             <div className="col s6">
-              <div className="col xl12 m4 l2">
+              <div class="input-field col s6">
                 <Input type="text" name="name" placeholder="ИМЯ" id="name" />
               </div>
-              <div className="col xl12 m4 l2">
-                <Input
-                  type="text"
-                  name="login"
-                  placeholder="ЛОГИН"
-                  id="login"
-                />
-              </div>
-            </div>
-            <div className="col s6">
-              <div className="col xl12 m4 l2">
+
+              <div class="input-field col s6">
                 <Input
                   type="text"
                   name="surname"
@@ -141,7 +132,18 @@ class App extends Component {
                   id="surname"
                 />
               </div>
-              <div className="col xl12 m4 l2">
+            </div>
+            <div className="col s6">
+              <div class="input-field col s6">
+                <Input
+                  type="text"
+                  name="login"
+                  placeholder="ЛОГИН"
+                  id="login"
+                />
+              </div>
+
+              <div class="input-field col s6">
                 <Input
                   type="password"
                   name="password"
@@ -216,7 +218,9 @@ class App extends Component {
             </div>
             <div className="col s6">
               <div id="area">
-                <p>Перетащите город в эту область. Вы можете выбрать до 3 городов</p>
+                <p>
+                  Перетащите город в эту область. Вы можете выбрать до 3 городов
+                </p>
                 <p id="p">{this.state.selectCity}</p>
                 <div id="positionSelect" />
               </div>
